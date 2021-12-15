@@ -6,13 +6,13 @@ import "reflect-metadata";
 
 import connectDatabase from "./database";
 
-import * as userController from "./controllers/userConroller";
+import * as categoriesController from "./controllers/categoriesController";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/users", userController.getUsers);
+app.get("/categories", categoriesController.getCategories);
 
 export async function init () {
   await connectDatabase();
