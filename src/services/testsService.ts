@@ -1,8 +1,12 @@
 import { getConnection, getRepository } from "typeorm";
 
 import Tests from "../entities/Tests";
+import { testSchema } from "../schemas/TestSchema";
 
 export async function postTest(name: string, pdfLink: string , categoryId: number, subjectId: number, teacherId: number) {
+    const isValid = testSchema.validate({ name, pdfLink, categoryId, subjectId, teacherId });
+    if (isValid.error !== undefined) return null;
+
     const testExists = await getRepository(Tests)
         .find({
             where: [
