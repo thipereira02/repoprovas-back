@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+
+import Term from "./Terms";
 
 @Entity("subjects")
 export default class Subject {
@@ -7,4 +9,10 @@ export default class Subject {
 
   @Column()
   name: string;
+
+  @Column()
+  termId: number;
+
+  @ManyToOne(() => Term, t => t.subjects)
+  term: Term;
 }
