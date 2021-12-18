@@ -18,7 +18,6 @@ export async function getTeachersBySubjects (req: Request, res: Response) {
 export async function getTeachersList (req: Request, res: Response) {
   try {
     const teachers = await teachersService.getTeachersAndTests();
-    if (teachers.length === 0) return res.sendStatus(404);
 
     return res.send(teachers);
   } catch (err) {
