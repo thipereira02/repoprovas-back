@@ -16,13 +16,13 @@ export async function postTest(name: string, pdfLink: string , categoryId: numbe
     if (testExists.length !== 0) return false;
   
     await getConnection()
-    .createQueryBuilder()
-    .insert()
-    .into(Tests)
-    .values([
-        {name, pdfLink, categoryId, subjectId, teacherId} 
-    ])
-    .execute();
+        .createQueryBuilder()
+        .insert()
+        .into(Tests)
+        .values([
+            {name, pdfLink, categoryId, subjectId, teacherId} 
+        ])
+        .execute();
 
     return true;
 }
