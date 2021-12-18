@@ -14,3 +14,15 @@ export async function getTeachersBySubjects (req: Request, res: Response) {
     res.sendStatus(500);
   }
 }
+
+export async function getTeachersList (req: Request, res: Response) {
+  try {
+    const teachers = await teachersService.getTeachersAndTests();
+    if (teachers.length === 0) return res.sendStatus(404);
+
+    return res.send(teachers);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+}
