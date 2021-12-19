@@ -1,26 +1,26 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
 
-import Term from "./Terms";
-import Test from "./Tests";
-import SubjectTeacher from "./SubjectsTeachers";
+import Term from './Terms';
+import Test from './Tests';
+import SubjectTeacher from './SubjectsTeachers';
 
-@Entity("subjects")
+@Entity('subjects')
 export default class Subject {
   @PrimaryGeneratedColumn()
-  id: number;
+    id: number;
 
   @Column()
-  name: string;
+    name: string;
 
   @Column()
-  termId: number;
+    termId: number;
 
-  @ManyToOne(() => Term, t => t.subjects)
-  term: Term;
+  @ManyToOne(() => Term, (t) => t.subjects)
+    term: Term;
 
-  @OneToMany(() => Test, t => t.subject)
-  tests: Test[];
+  @OneToMany(() => Test, (t) => t.subject)
+    tests: Test[];
 
-  @OneToMany(() => SubjectTeacher, s => s.subject)
-  subjectsTeachers: SubjectTeacher[];
+  @OneToMany(() => SubjectTeacher, (s) => s.subject)
+    subjectsTeachers: SubjectTeacher[];
 }

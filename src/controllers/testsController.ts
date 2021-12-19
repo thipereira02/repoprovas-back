@@ -1,11 +1,12 @@
-import { Request, Response } from "express";
+/* eslint-disable consistent-return */
+import { Request, Response } from 'express';
 
-import * as testsService from "../services/testsService";
-import { TestInterface } from "../interfaces/TestInterface";
+import * as testsService from '../services/testsService';
+import { TestInterface } from '../interfaces/TestInterface';
 
-export async function postNewTest (req: Request, res: Response) {
+export async function postNewTest(req: Request, res: Response) {
   try {
-    const {name, pdfLink, categoryId, subjectId, teacherId} = req.body as TestInterface;
+    const { name, pdfLink, categoryId, subjectId, teacherId } = req.body as TestInterface;
 
     const create = await testsService.postTest(name, pdfLink, categoryId, subjectId, teacherId);
     if (create === null) return res.sendStatus(400);
@@ -18,7 +19,7 @@ export async function postNewTest (req: Request, res: Response) {
   }
 }
 
-export async function getTestsByTeachers (req: Request, res: Response) {
+export async function getTestsByTeachers(req: Request, res: Response) {
   try {
     const teachers = await testsService.getTeachersAndTests();
 
@@ -29,7 +30,7 @@ export async function getTestsByTeachers (req: Request, res: Response) {
   }
 }
 
-export async function getTestsBySubjects (req: Request, res: Response) {
+export async function getTestsBySubjects(req: Request, res: Response) {
   try {
     const subjects = await testsService.getSubjectsAndTests();
 

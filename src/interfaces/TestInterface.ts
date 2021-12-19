@@ -5,5 +5,5 @@ interface TestInterface{
     subjectId: number,
     teacherId: number
   }
-  
-  export { TestInterface };
+
+export { TestInterface };

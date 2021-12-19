@@ -1,35 +1,35 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
-import Category from "./Categories";
-import Teacher from "./Teachers";
-import Subject from "./Subjects";
+import Category from './Categories';
+import Teacher from './Teachers';
+import Subject from './Subjects';
 
-@Entity("tests")
+@Entity('tests')
 export default class Test {
   @PrimaryGeneratedColumn()
-  id: number;
+    id: number;
 
   @Column()
-  name: string;
+    name: string;
 
   @Column()
-  pdfLink: string;
+    pdfLink: string;
 
   @Column()
-  categoryId: number;
+    categoryId: number;
 
   @Column()
-  teacherId: number;
+    teacherId: number;
 
   @Column()
-  subjectId: number;
+    subjectId: number;
 
-  @ManyToOne(() => Category, c => c.tests)
-  category: Category;
+  @ManyToOne(() => Category, (c) => c.tests)
+    category: Category;
 
-  @ManyToOne(() => Teacher, t => t.tests)
-  teacher: Teacher;
+  @ManyToOne(() => Teacher, (t) => t.tests)
+    teacher: Teacher;
 
-  @ManyToOne(() => Subject, s => s.tests)
-  subject: Subject;
+  @ManyToOne(() => Subject, (s) => s.tests)
+    subject: Subject;
 }

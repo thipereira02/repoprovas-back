@@ -1,7 +1,7 @@
-import { getRepository } from "typeorm";
+import { getRepository } from 'typeorm';
 
-import Tests from "../../src/entities/Tests";
+import Tests from '../../src/entities/Tests';
 
-export async function clearDatabase () {
+export async function clearDatabase() {
   await getRepository(Tests).delete({});
 }

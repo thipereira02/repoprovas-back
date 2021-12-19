@@ -4,6 +4,6 @@ import * as subjectsController from '../controllers/subjectsController';
 
 const router = express.Router();
 
-router.get("/subjects", subjectsController.getSubjects);
+router.get('/subjects', subjectsController.getSubjects);
 
 export default router;

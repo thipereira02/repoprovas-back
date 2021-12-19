@@ -1,15 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
-import Subject from "./Subjects";
+import Subject from './Subjects';
 
-@Entity("terms")
+@Entity('terms')
 export default class Term {
   @PrimaryGeneratedColumn()
-  id: number;
+    id: number;
 
   @Column()
-  name: string;
+    name: string;
 
-  @OneToMany(() => Subject, s => s.term)
-  subjects: Subject[];
+  @OneToMany(() => Subject, (s) => s.term)
+    subjects: Subject[];
 }

@@ -1,19 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
-import Test from "./Tests";
-import SubjectTeacher from "./SubjectsTeachers";
+import Test from './Tests';
+import SubjectTeacher from './SubjectsTeachers';
 
-@Entity("teachers")
+@Entity('teachers')
 export default class Teacher {
   @PrimaryGeneratedColumn()
-  id: number;
+    id: number;
 
   @Column()
-  name: string;
+    name: string;
 
-  @OneToMany(() => Test, t => t.teacher)
-  tests: Test[];
+  @OneToMany(() => Test, (t) => t.teacher)
+    tests: Test[];
 
-  @OneToMany(() => SubjectTeacher, s => s.teacher)
-  subjectsTeachers: SubjectTeacher[];
+  @OneToMany(() => SubjectTeacher, (s) => s.teacher)
+    subjectsTeachers: SubjectTeacher[];
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import joi from 'joi';
 
 export const testSchema = joi.object({
