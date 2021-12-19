@@ -107,8 +107,15 @@ describe("POST /tests", () => {
 });
 
 describe("GET /tests/teachers", () => {
-  it("should answer with status 200 when teachers are returned", async () => {
+  it("should answer with status 200 when array is returned", async () => {
     const response = await supertest(app).get("/tests/teachers");
+    expect(response.status).toBe(200);
+  });
+});
+
+describe("GET /tests/subjects", () => {
+  it("should answer with status 200 when array is returned", async () => {
+    const response = await supertest(app).get("/tests/subjects");
     expect(response.status).toBe(200);
   });
 });
