@@ -12,11 +12,3 @@ export async function getTeachersBySubjects (subjectId: number) {
   
   return teachers.map(t => t.teacher);
 }
-
-export async function getTeachersAndTests() {
-  const list = await getRepository(Teacher)
-    .find({
-      relations: ["tests", "tests.subject", "tests.category"]
-    })
-  return list
-}

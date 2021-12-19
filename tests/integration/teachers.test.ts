@@ -23,12 +23,3 @@ describe("GET /teachers/:subjectId", () => {
     expect(response.status).toBe(200);
   });
 });
-
-describe("GET /teachers", () => {
-  it("should answer with status 200 when teachers are returned", async () => {
-    await createTest();
-
-    const response = await supertest(app).get("/teachers");
-    expect(response.status).toBe(200);
-  });
-});

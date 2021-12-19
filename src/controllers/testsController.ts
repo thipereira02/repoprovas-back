@@ -17,3 +17,14 @@ export async function postNewTest (req: Request, res: Response) {
     res.sendStatus(500);
   }
 }
+
+export async function getTestsByTeachers (req: Request, res: Response) {
+  try {
+    const teachers = await testsService.getTeachersAndTests();
+
+    return res.send(teachers);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+}

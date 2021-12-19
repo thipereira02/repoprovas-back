@@ -1,6 +1,7 @@
 import { getConnection, getRepository } from "typeorm";
 
 import Tests from "../entities/Tests";
+import Teacher from "../entities/Teachers";
 import { testSchema } from "../schemas/TestSchema";
 
 export async function postTest(name: string, pdfLink: string , categoryId: number, subjectId: number, teacherId: number) {
@@ -26,3 +27,12 @@ export async function postTest(name: string, pdfLink: string , categoryId: numbe
 
     return true;
 }
+
+export async function getTeachersAndTests() {
+    const list = await getRepository(Teacher)
+      .find({
+        relations: ["tests", "tests.subject", "tests.category"]
+      })
+    return list
+}
+  

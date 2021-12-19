@@ -105,3 +105,10 @@ describe("POST /tests", () => {
     expect(response.status).toBe(500);
   });
 });
+
+describe("GET /tests/teachers", () => {
+  it("should answer with status 200 when teachers are returned", async () => {
+    const response = await supertest(app).get("/tests/teachers");
+    expect(response.status).toBe(200);
+  });
+});
