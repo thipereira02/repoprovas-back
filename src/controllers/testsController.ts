@@ -28,3 +28,14 @@ export async function getTestsByTeachers (req: Request, res: Response) {
     res.sendStatus(500);
   }
 }
+
+export async function getTestsBySubjects (req: Request, res: Response) {
+  try {
+    const subjects = await testsService.getSubjectsAndTests();
+
+    return res.send(subjects);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+}

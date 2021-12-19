@@ -20,6 +20,7 @@ app.get("/subjects", subjectsController.getSubjects);
 app.get("/teachers/:subjectId", teachersController.getTeachersBySubjects);
 app.post("/tests", testsController.postNewTest);
 app.get("/tests/teachers", testsController.getTestsByTeachers);
+app.get("/tests/subjects", testsController.getTestsBySubjects);
 
 export async function init () {
   await connectDatabase();

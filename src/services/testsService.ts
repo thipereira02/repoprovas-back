@@ -3,6 +3,7 @@ import { getConnection, getRepository } from "typeorm";
 import Tests from "../entities/Tests";
 import Teacher from "../entities/Teachers";
 import { testSchema } from "../schemas/TestSchema";
+import Term from "../entities/Terms";
 
 export async function postTest(name: string, pdfLink: string , categoryId: number, subjectId: number, teacherId: number) {
     const isValid = testSchema.validate({ name, pdfLink, categoryId, subjectId, teacherId });
@@ -35,4 +36,14 @@ export async function getTeachersAndTests() {
       })
     return list
 }
+
+export async function getSubjectsAndTests() {
+    const list = await getRepository(Term)
+      .find({
+        relations: ["subjects", "subjects.tests", "subjects.tests.category", "subjects.tests.teacher"],
+        order: {id: 'ASC'}
+      })
+    return list
+}
+
   
